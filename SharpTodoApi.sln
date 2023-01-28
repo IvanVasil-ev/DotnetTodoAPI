@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpTodoApi", "SharpTodoApi\SharpTodoApi.csproj", "{CDC3797B-12DE-4C21-9081-F487DCBE9765}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDC3797B-12DE-4C21-9081-F487DCBE9765}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{CDC3797B-12DE-4C21-9081-F487DCBE9765}.Debug|x64.ActiveCfg = Debug|x64
+		{CDC3797B-12DE-4C21-9081-F487DCBE9765}.Debug|x64.Build.0 = Debug|x64
+		{CDC3797B-12DE-4C21-9081-F487DCBE9765}.Release|Any CPU.ActiveCfg = Release|x64
+		{CDC3797B-12DE-4C21-9081-F487DCBE9765}.Release|x64.ActiveCfg = Release|x64
+		{CDC3797B-12DE-4C21-9081-F487DCBE9765}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {37216D4E-CF87-4C04-93DB-A0DC524EA6AA}
+	EndGlobalSection
+EndGlobal
