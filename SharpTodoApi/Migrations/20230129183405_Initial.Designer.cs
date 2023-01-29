@@ -11,7 +11,7 @@ using SharpTodoApi.Repositories;
 namespace SharpTodoApi.Migrations
 {
     [DbContext(typeof(TodoListContext))]
-    [Migration("20230129091408_Initial")]
+    [Migration("20230129183405_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -24,6 +24,33 @@ namespace SharpTodoApi.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("SharpTodoApi.Entities.AccountEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Accounts");
+                });
+
             modelBuilder.Entity("SharpTodoApi.Entities.TodoItemEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -31,6 +58,9 @@ namespace SharpTodoApi.Migrations
                         .HasColumnType("integer");
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AccountId")
+                        .HasColumnType("integer");
 
                     b.Property<bool>("IsComplete")
                         .HasColumnType("boolean");
@@ -41,7 +71,20 @@ namespace SharpTodoApi.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AccountId");
+
                     b.ToTable("TodoList");
+                });
+
+            modelBuilder.Entity("SharpTodoApi.Entities.TodoItemEntity", b =>
+                {
+                    b.HasOne("SharpTodoApi.Entities.AccountEntity", "Account")
+                        .WithMany()
+                        .HasForeignKey("AccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
                 });
 #pragma warning restore 612, 618
         }

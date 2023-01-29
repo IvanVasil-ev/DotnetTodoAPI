@@ -6,11 +6,11 @@ using SharpTodoApi.Repositories;
 namespace SharpTodoApi.Controllers;
 
 [ApiController]
-[Route("todo")]
-public class TodoItemsController : ControllerBase
+[Route("api/todo")]
+public class TodoItemController : ControllerBase
 {
     private readonly TodoListContext _context;
-    public TodoItemsController(TodoListContext context)
+    public TodoItemController(TodoListContext context)
     {
         _context = context;
     }
@@ -27,7 +27,7 @@ public class TodoItemsController : ControllerBase
     [Route("{id}")]
     public async Task<IActionResult> GetById(int id)
     {
-        TodoItemEntity todo = await _context.TodoList.Where(todo => todo.Id == id).FirstOrDefaultAsync();
+        TodoItemEntity todo = await _context.TodoList.FirstOrDefaultAsync(todo => todo.Id == id);
         return StatusCode(200, todo);
     }
 

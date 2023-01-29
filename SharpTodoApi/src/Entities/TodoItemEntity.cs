@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SharpTodoApi.Entities;
@@ -12,4 +13,7 @@ public class TodoItemEntity
     public string Title { get; set; }
 
     public bool IsComplete { get; set; }
+
+    [ForeignKey("AccountId")]
+    public AccountEntity Account { get; set; }
 }
